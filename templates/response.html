@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje de Confirmación</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -9,41 +12,45 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         .container {
             max-width: 600px;
-            margin: 0 auto;
             padding: 20px;
             background: #ffffff;
-            border: 1px solid #dddddd;
             border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         h1 {
             color: #333;
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 26px;
+            margin-bottom: 15px;
         }
 
         p {
-            margin: 0 0 10px 0;
+            margin: 10px 0;
+            font-size: 16px;
         }
 
-        a {
-            color: #0056b3;
-            text-decoration: none;
+        .signature {
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hola {{name}}!</h1>
-        <p>Gracias por contactarte,</p>
+        <h1>¡Hola, {{name}}!</h1>
+        <p>Gracias por contactarte con nosotros.</p>
         <p>En breve recibirás una respuesta.</p>
-        <p> </p>
-        <p>Saludos cordiales,</p>
-        <p>Franco Leon, Desarrollador de Software.</p>
+        <p class="signature">Saludos cordiales,<br>Franco León<br>Desarrollador de Software</p>
     </div>
 </body>
 </html>
