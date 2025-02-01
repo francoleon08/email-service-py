@@ -28,7 +28,7 @@ async def root():
 @app.post("/send-email")
 async def send_email(request: EmailRequest):
     try:
-        await handler_send_email(request.name, request.email, request.description)
+        await handler_send_email(request.email, request.name, request.description)
         return {"message": "Email sent successfully"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An error occurred while sending the email: {str(e)}")
