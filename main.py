@@ -1,12 +1,12 @@
 from fastapi import FastAPI
-from EmailService import send_email
+from EmailService import handler_send_email
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://francoleondev.vercel.app"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
@@ -20,6 +20,6 @@ async def root():
 
 
 @app.post("/send-email")
-async def say_hello(name: str, email: str, description: str):
-    await send_email(name, email, description)
+async def send_email(name: str, email: str, description: str):
+    await handler_send_email(name, email, description)
     return {"message": "Email sent successfully"}

@@ -9,7 +9,7 @@ template_loader = FileSystemLoader(searchpath="./templates")
 template_env = Environment(loader=template_loader)
 
 
-async def send_email(email: str, name: str, description: str):
+async def handler_send_email(email: str, name: str, description: str):
     template_response = template_env.get_template('response.html')
     template_details = template_env.get_template('details.html')
 
