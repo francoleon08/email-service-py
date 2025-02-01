@@ -1,11 +1,10 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, EmailStr
 from EmailService import handler_send_email
 
 app = FastAPI()
 
-# Configuración de CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -16,9 +15,9 @@ app.add_middleware(
 
 
 class EmailRequest(BaseModel):
-    name: str = Field(..., title="Full Name", min_length=1)
-    email: EmailStr = Field(..., title="Email Address")
-    description: str = Field(..., title="Description", min_length=1)
+    name: str
+    email: EmailStr
+    description: str
 
 
 @app.get("/")
