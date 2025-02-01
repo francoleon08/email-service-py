@@ -22,7 +22,7 @@ class EmailRequest(BaseModel):
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Email service is running"}
 
 
 @app.post("/send-email")
