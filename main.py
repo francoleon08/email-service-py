@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, EmailStr
 from EmailService import handler_send_email
@@ -21,7 +21,9 @@ class EmailRequest(BaseModel):
 
 
 @app.get("/")
-async def root():
+async def root(request: Request):
+    client_domain = request.headers.get("X-Client-Domain")  # Leer el dominio enviado
+    print(f"Dominio del cliente: {client_domain}")
     return {"message": "Email service is running"}
 
 
